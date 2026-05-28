@@ -140,6 +140,13 @@ This project was built to practice and improve:
 
 ---
 
+# YouTube Content
+
+Parts of this project are being documented and explained on YouTube, focusing on backend architecture, database design, layered architecture, and implementation details.
+
+YouTube Channel:
+https://www.youtube.com/@BackendMindset
+
 # Author
 
 BackendMindset
