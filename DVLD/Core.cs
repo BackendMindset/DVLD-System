@@ -8,9 +8,9 @@ namespace DVLD
 {
     public static class Session
     {
-        public static clsUser CurrentUser { get; private set; }
+        public static UserService CurrentUser { get; private set; }
 
-        public static void Start(clsUser user)
+        public static void Start(UserService user)
         {
             CurrentUser = user;
         }

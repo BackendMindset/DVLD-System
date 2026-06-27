@@ -58,74 +58,177 @@
     </Compile>
     <Compile Include="Core.cs" />
     <Compile Include="FilterHelper.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Main\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Main\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="People\frmManagePeople.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="People\frmManagePeople.Designer.cs">
+      <DependentUpon>frmManagePeople.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
+    <Compile Include="People\frmAddEditPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <Compile Include="People\frmAddEditPerson.Designer.cs">
+      <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form4.cs">
+    <Compile Include="Users\frmManageUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form4.Designer.cs">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <Compile Include="Users\frmManageUsers.Designer.cs">
+      <DependentUpon>frmManageUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAddEditUser.cs">
+    <Compile Include="Users\frmAddEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddEditUser.Designer.cs">
+    <Compile Include="Users\frmAddEditUser.Logic.cs">
+      <DependentUpon>frmAddEditUser.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmAddEditUser.Designer.cs">
       <DependentUpon>frmAddEditUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Drivers\frmManageDrivers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <Compile Include="Drivers\frmManageDrivers.Designer.cs">
+      <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </Compile>
-    <Compile Include="PersonCardControl.cs">
+    <Compile Include="Drivers\frmDriverDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drivers\frmDriverDetails.Designer.cs">
+      <DependentUpon>frmDriverDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\frmManageApplications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\frmManageApplications.Designer.cs">
+      <DependentUpon>frmManageApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\frmApplicationDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\frmApplicationDetails.Designer.cs">
+      <DependentUpon>frmApplicationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LocalDrivingLicenseApplications\frmManageLocalDrivingLicenseApplications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LocalDrivingLicenseApplications\frmManageLocalDrivingLicenseApplications.Designer.cs">
+      <DependentUpon>frmManageLocalDrivingLicenseApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LocalDrivingLicenseApplications\frmAddEditLocalDrivingLicenseApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LocalDrivingLicenseApplications\frmAddEditLocalDrivingLicenseApplication.Designer.cs">
+      <DependentUpon>frmAddEditLocalDrivingLicenseApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LocalDrivingLicenseApplications\frmLocalDrivingLicenseApplicationDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LocalDrivingLicenseApplications\frmLocalDrivingLicenseApplicationDetails.Designer.cs">
+      <DependentUpon>frmLocalDrivingLicenseApplicationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses\frmManageLicenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\frmManageLicenses.Designer.cs">
+      <DependentUpon>frmManageLicenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses\frmLicenseDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\frmLicenseDetails.Designer.cs">
+      <DependentUpon>frmLicenseDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Violations\frmManageViolations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Violations\frmManageViolations.Designer.cs">
+      <DependentUpon>frmManageViolations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Violations\frmViolationDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Violations\frmViolationDetails.Designer.cs">
+      <DependentUpon>frmViolationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\PersonCardControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PersonCardControl.Designer.cs">
+    <Compile Include="Shared\PersonCardControl.Designer.cs">
       <DependentUpon>PersonCardControl.cs</DependentUpon>
     </Compile>
     <Compile Include="PersonListView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserListViwe.cs" />
+    <Compile Include="UserListView.cs" />
     <EmbeddedResource Include="AddEditUser.resx">
       <DependentUpon>AddEditUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Main\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="People\frmManagePeople.resx">
+      <DependentUpon>frmManagePeople.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
+    <EmbeddedResource Include="People\frmAddEditPerson.resx">
+      <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form4.resx">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <EmbeddedResource Include="Users\frmManageUsers.resx">
+      <DependentUpon>frmManageUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddEditUser.resx">
+    <EmbeddedResource Include="Users\frmAddEditUser.resx">
       <DependentUpon>frmAddEditUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="Drivers\frmManageDrivers.resx">
+      <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PersonCardControl.resx">
+    <EmbeddedResource Include="Drivers\frmDriverDetails.resx">
+      <DependentUpon>frmDriverDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\frmManageApplications.resx">
+      <DependentUpon>frmManageApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\frmApplicationDetails.resx">
+      <DependentUpon>frmApplicationDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocalDrivingLicenseApplications\frmManageLocalDrivingLicenseApplications.resx">
+      <DependentUpon>frmManageLocalDrivingLicenseApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocalDrivingLicenseApplications\frmAddEditLocalDrivingLicenseApplication.resx">
+      <DependentUpon>frmAddEditLocalDrivingLicenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocalDrivingLicenseApplications\frmLocalDrivingLicenseApplicationDetails.resx">
+      <DependentUpon>frmLocalDrivingLicenseApplicationDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\frmManageLicenses.resx">
+      <DependentUpon>frmManageLicenses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\frmLicenseDetails.resx">
+      <DependentUpon>frmLicenseDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Violations\frmManageViolations.resx">
+      <DependentUpon>frmManageViolations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Violations\frmViolationDetails.resx">
+      <DependentUpon>frmViolationDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shared\PersonCardControl.resx">
       <DependentUpon>PersonCardControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -151,7 +254,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ContactDVLD\ContactsDVLDBusinessLayer\DVLD.BusinessLayer.csproj">
+    <ProjectReference Include="..\DVLD.BusinessLayer\DVLD.BusinessLayer.csproj">
       <Project>{06609b2a-f90d-4558-9b39-40d0bf79d33a}</Project>
       <Name>DVLD.BusinessLayer</Name>
     </ProjectReference>
