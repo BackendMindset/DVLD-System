@@ -1,37 +1,46 @@
 # DVLD - Improvements Summary
 
-## Project Overview
+This document summarizes the major architectural, structural, and code quality improvements made to the **DVLD (Driver & Vehicle Licensing Department)** project.
 
-DVLD (Department of Vehicle and Driver Licensing)
+The primary objective of these changes was to transform the project from a traditional WinForms application into a more maintainable, scalable, and enterprise-oriented software architecture while preserving the original business functionality.
 
-Windows Forms Desktop Application (.NET Framework 4.7.2)
+---
 
-Built using a **3-Layer Architecture**:
+# Project Overview
+
+DVLD is a Windows Forms desktop application built using **C#**, **.NET Framework 4.7.2**, **ADO.NET**, and **SQL Server**.
+
+The project follows a classic **3-Layer Architecture**, separating the application into:
 
 * Presentation Layer (WinForms)
 * Business Layer
-* Data Access Layer (ADO.NET + SQL Server)
+* Data Access Layer
+
+This separation ensures that user interface logic, business rules, and database operations remain independent, making the application easier to maintain, extend, and test.
 
 ---
 
 # Build Status
 
-✅ Build Succeeded
+The solution builds successfully.
 
-* 0 Errors
-* Remaining warnings are non-critical.
+* Build Status: Successful
+* Errors: 0
+* Remaining Warnings: Non-critical
+
+The project is stable and ready for continued feature development.
 
 ---
 
-# Major Improvements
+# 1. Business Layer Expansion
 
-## 1. Business Layer Expansion
+The Business Layer was redesigned to become the central component of the application rather than acting as a simple wrapper around database operations.
 
-The Business Layer was significantly extended beyond basic CRUD operations.
+Instead of exposing only CRUD methods, it now contains reusable business services responsible for validation, workflow management, and decision-making.
 
-### Search Operations
+### Search Services
 
-Added reusable search methods:
+Efficient search methods were introduced for the main system entities:
 
 * SearchPersonsAsync()
 * SearchUsersAsync()
@@ -40,20 +49,24 @@ Added reusable search methods:
 * SearchLicensesAsync()
 * SearchViolationsAsync()
 
-Filtering is now performed in the Data Access Layer instead of loading all records into memory.
+Filtering is now performed directly in SQL through the Data Access Layer, reducing unnecessary memory usage and improving performance.
 
 ---
 
-## 2. Business Validation
+# 2. Centralized Business Validation
 
-Added reusable validation methods:
+Business validation has been extracted from the Presentation Layer and centralized within the Business Layer.
+
+Validation methods include:
 
 * ValidatePersonAsync()
 * ValidateUserAsync()
 * ValidateDriverAsync()
 * ValidateLicenseAsync()
 
-Added reusable business decision methods:
+Decision-making methods were also introduced to determine whether business operations are allowed before execution.
+
+Examples include:
 
 * CanCreateUserAsync()
 * CanDeletePersonAsync()
@@ -64,15 +77,15 @@ Added reusable business decision methods:
 * CanScheduleTestAsync()
 * CanRetakeTestAsync()
 
-Business rules are now centralized inside the Business Layer.
+This approach keeps business rules consistent across the entire application.
 
 ---
 
-## 3. Business Actions
+# 3. Explicit Business Operations
 
-Added explicit business operations instead of modifying entity state directly.
+Instead of modifying entity states directly, dedicated business operations were implemented to represent real business workflows.
 
-Examples:
+Examples include:
 
 * ActivateUserAsync()
 * DeactivateUserAsync()
@@ -81,36 +94,44 @@ Examples:
 * SuspendLicenseAsync()
 * RestoreLicenseAsync()
 
+These operations improve readability while ensuring that all business validations are applied before changes are committed.
+
 ---
 
-## 4. Dashboard & Statistics
+# 4. Dashboard & Statistics
 
-Added lightweight statistics methods:
+Lightweight statistics services were introduced to support dashboards without loading unnecessary records.
+
+Implemented methods include:
 
 * GetDashboardStatisticsAsync()
 * GetApplicationStatisticsAsync()
 * GetLicenseStatisticsAsync()
 
+This prepares the project for future reporting and dashboard modules.
+
 ---
 
-## 5. DTO Improvements
+# 5. DTO Improvements
 
-Added lightweight DTOs only where necessary.
+Additional lightweight Data Transfer Objects (DTOs) were introduced where full entity objects were unnecessary.
 
-Examples:
+Examples include:
 
 * DriverListDto
 * DashboardStatisticsDto
 * ApplicationStatisticsDto
 * LicenseStatisticsDto
 
+Using specialized DTOs reduces unnecessary data transfer between layers and improves code clarity.
+
 ---
 
-## 6. Project Structure Refactoring
+# 6. Project Structure Refactoring
 
-The Presentation Layer has been completely reorganized.
+The Presentation Layer was reorganized into feature-based modules.
 
-Instead of keeping all Forms in the project root, the UI is now grouped by modules.
+Instead of storing every form inside a single folder, the UI is now grouped by functional areas.
 
 Current structure:
 
@@ -126,95 +147,103 @@ Violations/
 Shared/
 ```
 
-This makes the project easier to navigate and maintain.
+This modular organization simplifies project navigation and improves maintainability as the application grows.
 
 ---
 
-## 7. WinForms Naming Standard
+# 7. WinForms Naming Convention
 
-Old generic names were replaced with meaningful names.
+Generic form names were replaced with descriptive, consistent names following WinForms conventions.
 
-Examples:
+| Previous Name | Current Name     |
+| ------------- | ---------------- |
+| Form1         | frmMain          |
+| Form2         | frmManagePeople  |
+| Form3         | frmAddEditPerson |
+| Form4         | frmManageUsers   |
+| LoginForm     | frmLogin         |
 
-| Old       | New              |
-| --------- | ---------------- |
-| Form1     | frmMain          |
-| Form2     | frmManagePeople  |
-| Form3     | frmAddEditPerson |
-| Form4     | frmManageUsers   |
-| LoginForm | frmLogin         |
-
-The project now follows a consistent naming convention.
+The new naming convention improves readability and makes the purpose of each form immediately clear.
 
 ---
 
-## 8. UI Refactoring
+# 8. User Interface Refactoring
 
-Removed the previous generic UI implementation.
+The previous experimental UI architecture was removed in favor of a simpler and more maintainable approach.
 
 Removed:
 
-* Generic list Forms
-* Dynamic dashboard generation
-* Base UI inheritance
+* Generic list forms
+* Runtime-generated dashboards
+* Base form inheritance
 
-Replaced with:
+Current approach:
 
-* Designer-based WinForms
-* Independent Forms
+* Independent WinForms
+* Visual Studio Designer
 * Module-oriented organization
+* Clear separation between UI and business logic
 
-Every screen is now developed using the Visual Studio WinForms Designer.
+Each screen is now developed using the standard WinForms Designer, making future maintenance easier.
 
 ---
 
-## 9. Shared Components
+# 9. Shared Components
 
-Created a Shared folder for reusable UI controls.
+Reusable user interface components were extracted into a dedicated **Shared** module.
 
-Current shared controls:
+Current shared components include:
 
 * PersonCardControl
 
-This folder will host reusable UserControls across the application.
+Additional reusable controls will be added as the project expands.
 
 ---
 
-## 10. Logging & Error Handling
+# 10. Logging & Error Handling
 
-Implemented:
+Application reliability was improved through centralized logging and standardized error handling.
 
-* Thread-safe Logger
-* Global Exception Handlers
+Implemented features include:
+
+* Thread-safe logging
+* Global exception handling
 * Result<T> pattern
-* Improved user-friendly error messages
+* Consistent user-friendly error messages
+* Safe database operation handling
+
+These improvements simplify debugging while providing a better user experience.
 
 ---
 
-## 11. Configuration
+# 11. Configuration Management
 
-Connection string moved to App.config.
+Database configuration was moved from hardcoded values into **App.config**.
 
-Dynamic loading through ConfigurationManager.
+The application now loads connection settings dynamically through **ConfigurationManager**, making deployment and environment configuration significantly easier.
 
 ---
 
-## 12. Code Quality
+# 12. Code Quality Improvements
 
-Completed several refactoring tasks:
+A comprehensive refactoring effort was completed to improve overall maintainability.
 
-* Unified naming convention
-* Removed obsolete Forms
-* Removed duplicate UI code
-* Organized solution folders
+Completed tasks include:
+
+* Standardized naming conventions
+* Removed obsolete forms
+* Eliminated duplicate UI code
+* Organized project folders
 * Improved readability
 * Fixed namespace inconsistencies
+* Simplified project structure
+* Improved code consistency
 
 ---
 
 # Current UI Modules
 
-Implemented:
+The following modules are currently implemented:
 
 * Main
 * Login
@@ -225,35 +254,36 @@ Implemented:
 * Licenses
 * Violations
 
-Remaining modules will follow the same architecture and visual style.
+The remaining modules will follow the same architecture, coding standards, and visual design.
 
 ---
 
 # Current Architecture
 
 ```text
-Presentation (WinForms)
-
-↓
-
+Presentation Layer (WinForms)
+            │
+            ▼
 Business Layer
-
-↓
-
+(Business Rules • Validation • DTOs)
+            │
+            ▼
 Data Access Layer
-
-↓
-
-SQL Server
+(ADO.NET • SQL Queries • CRUD)
+            │
+            ▼
+SQL Server Database
 ```
 
 ---
 
 # Technologies
 
+The project is built using the following technologies:
+
 * C#
 * .NET Framework 4.7.2
-* WinForms
+* Windows Forms
 * SQL Server
 * ADO.NET
 * Async/Await
@@ -263,7 +293,9 @@ SQL Server
 
 ---
 
-# Future Work
+# Future Roadmap
+
+Planned improvements include:
 
 * Complete remaining WinForms modules
 * Finish Account Settings
@@ -272,15 +304,24 @@ SQL Server
 * Complete Payment module
 * Complete Role Management
 * Complete License Transactions
-* Migrate Business Layer to ASP.NET Core Web API
-* Build a modern Web Frontend using the same business logic
+* Introduce Unit Testing
+* Add Dependency Injection
+* Expose the Business Layer through ASP.NET Core Web API
+* Build a modern web frontend that reuses the existing business logic
 
 ---
 
 # Repository Improvements
 
-* Modular folder structure
-* Cleaner naming convention
+The repository has been reorganized to improve maintainability and prepare the project for future expansion.
+
+Key improvements include:
+
+* Feature-based folder organization
+* Cleaner naming conventions
 * Better separation of concerns
 * Reusable Business Layer
+* Centralized business validation
+* Improved code readability
+* Modular WinForms structure
 * Scalable architecture ready for future Web API migration
